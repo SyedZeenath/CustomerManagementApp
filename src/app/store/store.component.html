@@ -1,0 +1,46 @@
+<div class="navbar navbar-inverse bg-inverse">  
+  <div class="nabar-inner">
+    <a class="navbar-brand" href="#/">SPORTS STORE</a>
+        <a href="/customers">Customers</a>
+        <br>
+        <a href="/orders">Orders</a>
+ </div>
+</div>
+
+<div class="col-xs-3 p-a-1">
+   
+    <div class="m-t-1 m-b-1">
+      <h2>Customers:</h2>
+      
+        <label>First Name:</label>
+        <input class="form-control" type="text" [(ngModel)]="customer.firstName" placeholder="First name" required/>
+       
+       
+        <label>last Name:</label>
+        <input class="form-control" type="text" [(ngModel)]="customer.lastName" placeholder="last name" required/>
+
+        <label>City:</label>
+        <input class="form-control" type="text" [(ngModel)]="customer.city" placeholder="city" required/>
+
+        <!-- <label>ID:</label>
+        <input class="form-control" [(ngModel)]="customer.id" /> -->
+     </div>
+       
+       <button class="btn btn-primary" (click)="addCustomer(customer)">Add Customer</button>
+       <br>
+
+</div> 
+
+
+  <div class="cardContainer"> 
+    <div *ngFor="let customer of customers" class="col-xs-3 card">
+        <button class="btn close cardClose" (click)="deleteCustomer(customer.id)">×</button>
+        <h4 class="card-header">{{customer.firstName}} {{customer.lastName}}</h4>
+      <div class="card-text p-a-1">{{customer.city}}</div>
+        <!-- <a href="#/orders">View Orders</a> -->
+        <a href="/customer/{{customer.id}}">{{customer.firstName +"'s orders"}}</a>
+    </div>
+  </div>
+
+
+ 
